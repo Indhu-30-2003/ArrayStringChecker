@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <style>
+        .container{
+            width:400px;
+            margin:50px auto;
+            background-color: seagreen;
+            color: black;
+            text-align: center;
+            padding:20px;
+            border-radius: 20px;
+        }
+        h2{
+            font-size: 30px;
+            font-weight: bold;
+           
+            
+        }
+        .output p{
+            font-size: 20px;
+        }
+        #inputentered{
+            width:70%;
+            padding:8px;
+            border:none;
+            outline:none;
+            border-radius: 10px;
+        }
+        #btn{
+            padding:10px;
+            border-radius: 20px;
+            border: none;
+            outline:none;
+            background-color: brown;
+            color: white;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Array String Checker</h2>
+        <input type="text" placeholder="Enter your text" id="inputentered"> 
+        <button id="btn" onclick="additem()">Add text</button>
+        <div class="output">
+            <p id="arrayOutput">Array: ["Banana","Apple"]</p>
+            <p id="lengthOutput">Length: 2</p>
+        </div>
+    </div>
+    <script>
+        var array=["Banana","Apple"]
+        function additem(){
+            var inputentered=document.getElementById("inputentered").value.trim()
+            if(inputentered===""){
+                alert("Please enter a valid string")
+                return
+            }
+            if(!array.includes(inputentered)){
+                array.push(inputentered)
+            }
+            else{
+                alert(`"${inputentered}" already exits`)
+            }
+            array.sort();
+            document.getElementById('arrayOutput').innerText = `Array: [${array.join(", ")}]`;
+            document.getElementById('lengthOutput').innerText = `Length: ${array.length}`;
+            document.getElementById('inputentered').value = '';
+        }
+
+            
+        
+
+
+    </script>
+</body>
+</html>
